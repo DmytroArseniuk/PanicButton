@@ -16,6 +16,11 @@ import android.view.MenuItem;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ua.nure.panicbutton.model.MyIP;
+import ua.nure.panicbutton.service.PanicButtonService;
 import ua.nure.panicbutton.service.RegistrationIntentService;
 import ua.nure.panicbutton.util.Log;
 
@@ -29,16 +34,6 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -50,6 +45,18 @@ public class HomeActivity extends AppCompatActivity
 
         Log.i("RegistrationIntentStarted");
         startService(new Intent(this, RegistrationIntentService.class));
+
+        PanicButtonService.getMyIP(new Callback<MyIP>() {
+            @Override
+            public void onResponse(Call<MyIP> call, Response<MyIP> response) {
+                Log.i("My IP is : " + response.body().getIp());
+            }
+
+            @Override
+            public void onFailure(Call<MyIP> call, Throwable t) {
+                Log.i("Error: " + t.getMessage());
+            }
+        });
     }
 
     @Override
@@ -60,28 +67,6 @@ public class HomeActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
