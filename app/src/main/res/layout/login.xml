@@ -30,19 +30,19 @@
         android:hint="email"
         android:layout_gravity="center_horizontal" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editPassword"
-        android:width="260dp"
-        android:hint="password"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/abc_action_bar_subtitle_bottom_margin_material" />
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/editPassword"-->
+        <!--android:width="260dp"-->
+        <!--android:hint="password"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_margin="@dimen/abc_action_bar_subtitle_bottom_margin_material" />-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/liginBtn"
+        android:id="@+id/loginBtn"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

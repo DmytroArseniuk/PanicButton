@@ -9,7 +9,7 @@ import ua.nure.panicbutton.model.MyIP;
 public interface PanicButtonApi {
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://jsonip.com")
+            .baseUrl("http://emergencyassistance.azurewebsites.net")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

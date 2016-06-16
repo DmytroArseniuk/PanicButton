@@ -1,4 +1,4 @@
-package ua.nure.panicbutton;
+package ua.nure.panicbutton.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ua.nure.panicbutton.R;
 import ua.nure.panicbutton.model.MyIP;
 import ua.nure.panicbutton.service.PanicButtonService;
 import ua.nure.panicbutton.service.RegistrationIntentService;
